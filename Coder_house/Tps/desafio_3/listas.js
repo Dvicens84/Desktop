@@ -92,3 +92,4 @@ console.log (pedido4.Subtotal)
 
 console.log ("--- Total a Pagar ---")
 console.log(CostoFinal.calcularTotal())
+
