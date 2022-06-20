@@ -64,8 +64,8 @@ const art4 = new articulo ("pesado", "SAW 25-50", 350)
       close ( )
  */
 
-      // DOM
-let nombre = prompt("Por Favor Ingrese sus Datos")
+      // trabahjado con  DOM
+let nombre = prompt("Por Favor Ingrese su Nombre")
 
 const bienvenida = document.getElementById("saludo")
 const saludo = document.createElement('h1')
@@ -82,7 +82,7 @@ let ListaArticulos= document.getElementById("listaArticulos")
 let cart = []
 let totales = []
 
-function mostrarProductos() {
+function mostrarArticulos() {
     articulos.forEach((articulo) => {
         let card = document.createElement("div")
         listaArticulos.append(card)
@@ -91,8 +91,8 @@ function mostrarProductos() {
         img.setAttribute("class", "aceites")
         let nomArt = document.createElement("h3")
         nomArt.innerText = (articulo.nomArt)
-        let precio = document.createElement("p")
-        precio.innerText = (articulo.preArt)
+        let preArt = document.createElement("p")
+        preArt.innerText = (articulo.preArt)
         let buyButton = document.createElement("button")
         buyButton.innerText = ("Agregar al carrito")
         card.append(img, nomArt, preArt, buyButton)
@@ -101,12 +101,30 @@ function mostrarProductos() {
             cart.push(articulo)
             alert("Agregaste " + articulo.nomArt + " al carrito")
             let cantidad = prompt("ingrese Cantidad")
-            detalleDeCompra.innerHTML = articulo.nomArt  + " " + "$" + articulo.preArt * cantidad
+            detallePedido.innerHTML = articulo.nomArt  + " " + "$" + articulo.preArt * cantidad
             total = articulo.preArt * cantidad
             total.push(totales)
         }) 
     }) 
 } 
 
-mostrarProductos()
+mostrarArticulos()
 iniciar()
+
+function iniciar(){
+    let btnCalcular = document.getElementById("btnCalcular");
+    btnCalcular.addEventListener("click", clickBtnCalcular);    
+
+    let btnBorrar = document.getElementById("btnBorrar");
+    btnBorrar.addEventListener("click", clickBtnBorrar);
+
+}   
+
+function clickBtnCalcular() {
+             alert("el total es $" + total)
+    }   
+
+    function clickBtnBorrar() {
+        let detallePedido= document.getElementById("detallePedido")
+        detallePedido.innerHTML = "";
+        }
